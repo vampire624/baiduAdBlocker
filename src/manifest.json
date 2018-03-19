@@ -1,0 +1,29 @@
+{
+	"name": "百度广告拦截",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "拦截百度搜索页面的推荐广告以及右边栏无用的相关搜索信息",
+	"background": {
+		"script": ["js/background.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://www.baidu.com/*"],
+			"js": ["js/block.js"],
+			"run_at": "document_end"
+		}
+	],
+	"permissions": [
+		"https://www.baidu.com/*", "tabs", "storage"
+	],
+	"icons": {
+		"16": "pic/icon_16.png",
+		"48": "pic/icon_48.png",
+		"128": "pic/icon_128.png"
+	},
+	"browser_action": {
+		"name": "百度广告拦截——by vampire624",
+		"default_icon": "pic/icon_128.png",
+		"default_popup": "popup.html"
+	}
+}
